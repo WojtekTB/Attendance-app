@@ -45,20 +45,16 @@ function draw() {
 }
 
 function getLocation() {
-  //   var x = document.getElementById("demo");
-
-  function getLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-      alert("Geolocation is not supported by this browser.");
-    }
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    alert("Geolocation is not supported by this browser.");
   }
+}
 
-  function showPosition(position) {
-    alert(position.coords.latitude);
-    alert(position.coords.longitude);
-  }
+function showPosition(position) {
+  alert(position.coords.latitude);
+  alert(position.coords.longitude);
 }
 
 function populateStudents() {
@@ -76,6 +72,7 @@ function populateStudents() {
 function onSubmit() {
   //   console.log(idInput.value());
   getLocation();
+  showPosition();
   if (idInput.value() === undefined) {
     alert("Enter some ID");
   } else {
